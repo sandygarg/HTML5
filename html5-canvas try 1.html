@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <script type="application/javascript">
+    function makeEqTriangle(ctx,x,y,rotation) {
+              ctx.beginPath();
+
+        //reach triangle start point
+        ctx.save();
+        ctx.moveTo(x,y);
+        ctx.translate(x,y);
+        // ctx.save();
+        
+        //draw a
+        ctx.rotate(rotation);
+        ctx.lineTo(300,0);
+        ctx.translate(300,0);
+
+        //draw b
+        ctx.rotate(2*Math.PI/3);
+        ctx.lineTo(300,0);
+        ctx.translate(300,0);
+
+        //draw c
+        ctx.rotate(2*Math.PI/3);
+        ctx.lineTo(300,0);
+        ctx.translate(300,0);
+        // ctx.restore();
+
+        //back to original rotation
+        ctx.rotate(2*Math.PI/3);
+
+        //start filling
+        fillTriangle(ctx);
+
+        ctx.restore();
+        ctx.moveTo(0,0);
+
+        ctx.stroke();
+
+    }
+
+    function fillTriangle(ctx){
+      
+      for(var i=0 ; i<15;i++){
+        ctx.rotate(Math.PI/42);
+        
+        ctx.lineTo(289,0);
+        ctx.translate(289,0);
+        ctx.rotate(2*Math.PI/3 );
+
+        ctx.lineTo(266,0);
+        ctx.translate(266,0);
+        ctx.rotate(2*Math.PI/3);
+
+        ctx.lineTo(265,0);
+        ctx.translate(265,0);
+        ctx.rotate(2*Math.PI/3);
+
+      }
+
+      // ctx.rotate(2*Math.PI/3);
+      // ctx.lineTo(260,10);
+      // ctx.translate(260,10);
+
+      // ctx.rotate(2*Math.PI/3);
+      // ctx.lineTo(250,10);
+      // ctx.translate(250,10);
+    }
+
+    function draw() {
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        var sixtyDeg = Math.PI/3;
+        for(var i=0;i<6;i++){
+          makeEqTriangle(ctx,629 ,629,sixtyDeg*i);
+        }
+      }
+    }//end of draw()
+
+
+  </script>
+ </head>
+ <body onload="draw();">
+   <canvas id="canvas" width="1500" height="1500"></canvas>
+ 
+</body></html>
