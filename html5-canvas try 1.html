@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <script type="application/javascript">
     function makeEqTriangle(ctx,x,y,rotation) {
-        ctx.beginPath();  
+              ctx.beginPath();
 
         //reach triangle start point
         ctx.save();
         ctx.moveTo(x,y);
         ctx.translate(x,y);
-        // ctx.save(); //remove saving
+        // ctx.save();
         
         //draw a
         ctx.rotate(rotation);
@@ -43,8 +43,8 @@
 
     function fillTriangle(ctx){
       
-      for(var i=0 ; i<15;i++){
-        ctx.rotate(Math.PI/42);
+      for(var i=0 ; i<30;i++){
+        ctx.rotate(Math.PI/30);
         
         ctx.lineTo(289,0);
         ctx.translate(289,0);
